@@ -1,0 +1,64 @@
+Name: torch
+Version: 2.5.1+cu124
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3-Clause
+Location: /infodev1/home/m199589/miniconda3-2/envs/R0/lib/python3.10/site-packages
+Requires: filelock, fsspec, jinja2, networkx, nvidia-cublas-cu12, nvidia-cuda-cupti-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-runtime-cu12, nvidia-cudnn-cu12, nvidia-cufft-cu12, nvidia-curand-cu12, nvidia-cusolver-cu12, nvidia-cusparse-cu12, nvidia-nccl-cu12, nvidia-nvjitlink-cu12, nvidia-nvtx-cu12, sympy, triton, typing-extensions
+Required-by: accelerate, bitsandbytes, torchaudio, torchvision
+---
+Name: transformers
+Version: 4.48.3
+Summary: State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow
+Home-page: https://github.com/huggingface/transformers
+Author: The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)
+Author-email: transformers@huggingface.co
+License: Apache 2.0 License
+Location: /infodev1/home/m199589/miniconda3-2/envs/R0/lib/python3.10/site-packages
+Requires: filelock, huggingface-hub, numpy, packaging, pyyaml, regex, requests, safetensors, tokenizers, tqdm
+Required-by: 
+---
+Name: accelerate
+Version: 1.1.1
+Summary: Accelerate
+Home-page: https://github.com/huggingface/accelerate
+Author: The HuggingFace team
+Author-email: zach.mueller@huggingface.co
+License: Apache
+Location: /infodev1/home/m199589/miniconda3-2/envs/R0/lib/python3.10/site-packages
+Requires: huggingface-hub, numpy, packaging, psutil, pyyaml, safetensors, torch
+Required-by: 
+---
+Name: bitsandbytes
+Version: 0.45.2
+Summary: k-bit optimizers and matrix multiplication routines.
+Home-page: https://github.com/bitsandbytes-foundation/bitsandbytes
+Author: 
+Author-email: Tim Dettmers <dettmers@cs.washington.edu>
+License: MIT License
+        
+        Copyright (c) Facebook, Inc. and its affiliates.
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Location: /infodev1/home/m199589/miniconda3-2/envs/R0/lib/python3.10/site-packages
+Requires: numpy, torch
+Required-by: 
