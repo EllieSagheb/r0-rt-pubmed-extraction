@@ -1,0 +1,569 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "298d3129-12ef-45c4-aedb-cd04d04a22d6",
+   "metadata": {},
+   "source": [
+    "Title: Parallel Multi-Agent Extraction Pipeline (Dual GPU)\n",
+    "\n",
+    "This notebook implements a high-throughput pipeline using two GPUs simultaneously.\n",
+    "\n",
+    "Architecture: Producer-Consumer (Pipeline).\n",
+    "\n",
+    "GPU 0 (Producer): Runs Agent A (Qwen 2.5-32B). It reads raw text and \"produces\" extractions.\n",
+    "\n",
+    "GPU 1 (Consumer): Runs Agent B (Gemma 2-27B). It consumes extractions and audits them.\n",
+    "\n",
+    "Advantage: No model loading/unloading overhead. Throughput is significantly higher than the single-GPU version."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "862cf7c3-af79-4e7c-875f-df991987970d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<torch._C.Generator at 0x7f3bbb5950b0>"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import torch\n",
+    "import json\n",
+    "import time\n",
+    "import threading\n",
+    "from queue import Queue\n",
+    "from typing import List, Optional, Literal\n",
+    "from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig\n",
+    "\n",
+    "# Set seed for reproducibility\n",
+    "torch.manual_seed(42)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "2b5a8cc6-b487-4145-bd2c-c08bea92d735",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/home/m199589/miniconda3-2/envs/R0/bin/python\n"
+     ]
+    }
+   ],
+   "source": [
+    "# To check whihc virtual env I am in\n",
+    "import sys\n",
+    "print(sys.executable)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e0e7eeff-52ff-411c-87ed-a7a0fafef789",
+   "metadata": {},
+   "source": [
+    "1. Model Loading (Permanent)\n",
+    "\n",
+    "Unlike the single-GPU version, we load models permanently to specific devices.\n",
+    "\n",
+    "load_permanent_model takes a gpu_id (0 or 1) and forces the model to stay there.\n",
+    "\n",
+    "We use 4-bit quantization to ensure 32B/27B models fit comfortably within 24GB VRAM."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "b96f3f40-657c-4c19-bdbd-c384404872ab",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def load_permanent_model(model_id: str, gpu_id: int):\n",
+    "    \"\"\"Loads a model to a specific GPU and keeps it there.\"\"\"\n",
+    "    device = f\"cuda:{gpu_id}\"\n",
+    "    print(f\"\\n[System] Loading {model_id} on {device}...\")\n",
+    "    \n",
+    "    bnb_config = BitsAndBytesConfig(\n",
+    "        load_in_4bit=True,\n",
+    "        bnb_4bit_compute_dtype=torch.float16,\n",
+    "        bnb_4bit_quant_type=\"nf4\"\n",
+    "    )\n",
+    "    \n",
+    "    tokenizer = AutoTokenizer.from_pretrained(model_id)\n",
+    "    \n",
+    "    # device_map={\"\": gpu_id} forces the entire model onto one specific card\n",
+    "    model = AutoModelForCausalLM.from_pretrained(\n",
+    "        model_id,\n",
+    "        quantization_config=bnb_config,\n",
+    "        device_map={\"\": gpu_id}, \n",
+    "        trust_remote_code=True\n",
+    "    )\n",
+    "    \n",
+    "    return model, tokenizer, device"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cbb6f91c-684f-407e-8dd7-33a177bf9f80",
+   "metadata": {},
+   "source": [
+    "2. Worker Function: Agent A (Extractor on GPU 0)\n",
+    "\n",
+    "This function runs in its own thread. It pulls raw abstracts from the input_queue, processes them using the model on GPU 0, and pushes the result to the audit_queue."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "e3c9cd87-4b9b-4846-b933-92db1c8556b9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def agent_a_worker(input_queue, audit_queue, model, tokenizer, device):\n",
+    "    \"\"\"\n",
+    "    GPU 0 Worker: Reads JSON entries, extracts specific epidemiological data.\n",
+    "    \"\"\"\n",
+    "    print(f\"[Agent A] Ready on {device}. Processing abstracts...\")\n",
+    "    \n",
+    "    # SYSTEM PROMPT: Enforce the exact schema you asked for\n",
+    "    system_prompt = \"\"\"You are an expert Epidemiologist. Extract the following fields from the abstract:\n",
+    "    1. Disease Name (e.g., COVID-19, Monkeypox)\n",
+    "    2. Location (e.g., Italy, Wuhan, Global)\n",
+    "    3. Metric Type (R0 or Rt)\n",
+    "    4. Value (The point estimate)\n",
+    "    5. CI (The 95% Confidence Interval range, e.g., '1.2-1.5')\n",
+    "    6. Evidence Snippet (Exact quote supporting the value)\n",
+    "\n",
+    "    Output strictly valid JSON:\n",
+    "    {\n",
+    "        \"disease\": \"string\",\n",
+    "        \"location\": \"string\",\n",
+    "        \"metric_type\": \"R0\" or \"Rt\",\n",
+    "        \"value\": float,\n",
+    "        \"ci\": \"string\",\n",
+    "        \"evidence_snippet\": \"string\"\n",
+    "    }\n",
+    "    If multiple exist, extract the primary finding. If none, return empty JSON.\"\"\"\n",
+    "\n",
+    "    while True:\n",
+    "        entry = input_queue.get()\n",
+    "        \n",
+    "        if entry is None:\n",
+    "            audit_queue.put(None)\n",
+    "            input_queue.task_done()\n",
+    "            break\n",
+    "            \n",
+    "        # Get text and ID from your raw_abstracts.json\n",
+    "        abstract_text = entry.get(\"text\", \"\")\n",
+    "        article_id = entry.get(\"pmid\", \"Unknown\")\n",
+    "        \n",
+    "        # Prepare Prompt\n",
+    "        messages = [\n",
+    "            {\"role\": \"system\", \"content\": system_prompt},\n",
+    "            {\"role\": \"user\", \"content\": f\"Abstract: {abstract_text}\"}\n",
+    "        ]\n",
+    "        text_input = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)\n",
+    "        inputs = tokenizer(text_input, return_tensors=\"pt\").to(device)\n",
+    "        \n",
+    "        with torch.no_grad():\n",
+    "            generated_ids = model.generate(**inputs, max_new_tokens=512, temperature=0.1)\n",
+    "        \n",
+    "        output_text = tokenizer.decode(generated_ids[0][len(inputs.input_ids[0]):], skip_special_tokens=True)\n",
+    "        \n",
+    "        try:\n",
+    "            clean_json = output_text.replace(\"```json\", \"\").replace(\"```\", \"\").strip()\n",
+    "            data = json.loads(clean_json)\n",
+    "            \n",
+    "            # Only proceed if we have a valid value\n",
+    "            if data and data.get(\"value\"):\n",
+    "                # Pass the extraction + the original Article ID to Agent B\n",
+    "                payload = {\n",
+    "                    \"article_id\": article_id,  # PRESERVE ID\n",
+    "                    \"original_text\": abstract_text,\n",
+    "                    \"extraction\": data\n",
+    "                }\n",
+    "                audit_queue.put(payload)\n",
+    "            else:\n",
+    "                pass \n",
+    "\n",
+    "        except Exception as e:\n",
+    "            # print(f\"[Agent A] Error: {e}\")\n",
+    "            pass\n",
+    "            \n",
+    "        input_queue.task_done()\n",
+    "    print(\"\\n[Agent A] Shutting down.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "523a4108-7e27-47f7-9ba6-268952b1b586",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0146ddee-3872-4f92-8993-e108e31db202",
+   "metadata": {},
+   "source": [
+    "3. Worker Function: Agent B (Critic on GPU 1)\n",
+    "\n",
+    "This function runs in a separate thread. It pulls extracted data from the audit_queue, critiques it using the model on GPU 1, and saves valid results to the final_database."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "a39849bf-aa66-4446-b0f2-3479e3c9783f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def agent_b_worker(audit_queue, final_database, model, tokenizer, device):\n",
+    "    \"\"\"\n",
+    "    GPU 1 Worker: Verifies R0, Rt, CI, and Location against the text.\n",
+    "    \"\"\"\n",
+    "    print(f\"[Agent B] Ready on {device}. Auditing...\")\n",
+    "    \n",
+    "    system_prompt = \"\"\"You are a QA Auditor. Verify the extracted data against the Abstract.\n",
+    "    Check for:\n",
+    "    1. Precision (Do the Value and CI match exactly?)\n",
+    "    2. Context (Is the Location and Disease correct?)\n",
+    "    3. Metric (Is it R0 or Rt?)\n",
+    "    \n",
+    "    Output JSON: {\"status\": \"PASS\" or \"FAIL\", \"reason\": \"string\"}\"\"\"\n",
+    "    \n",
+    "    while True:\n",
+    "        payload = audit_queue.get()\n",
+    "        \n",
+    "        if payload is None:\n",
+    "            audit_queue.task_done()\n",
+    "            break\n",
+    "            \n",
+    "        # Unpack\n",
+    "        article_id = payload[\"article_id\"]\n",
+    "        extraction = payload[\"extraction\"]\n",
+    "        original_text = payload[\"original_text\"]\n",
+    "        \n",
+    "        # Prepare Prompt\n",
+    "        extraction_str = json.dumps(extraction, indent=2)\n",
+    "        user_content = f\"Abstract: {original_text}\\n\\nExtracted Data:\\n{extraction_str}\"\n",
+    "        \n",
+    "        messages = [\n",
+    "            {\"role\": \"system\", \"content\": system_prompt},\n",
+    "            {\"role\": \"user\", \"content\": user_content}\n",
+    "        ]\n",
+    "        text_input = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)\n",
+    "        inputs = tokenizer(text_input, return_tensors=\"pt\").to(device)\n",
+    "        \n",
+    "        with torch.no_grad():\n",
+    "            generated_ids = model.generate(**inputs, max_new_tokens=256, temperature=0.0)\n",
+    "            \n",
+    "        output_text = tokenizer.decode(generated_ids[0][len(inputs.input_ids[0]):], skip_special_tokens=True)\n",
+    "        \n",
+    "        try:\n",
+    "            clean_json = output_text.replace(\"```json\", \"\").replace(\"```\", \"\").strip()\n",
+    "            critique = json.loads(clean_json)\n",
+    "            \n",
+    "            if critique.get(\"status\") == \"PASS\":\n",
+    "                # Create the FINAL SCHEMA you requested\n",
+    "                final_record = {\n",
+    "                    \"article_id\": article_id,\n",
+    "                    \"disease\": extraction.get(\"disease\"),\n",
+    "                    \"location\": extraction.get(\"location\"),\n",
+    "                    \"metric\": extraction.get(\"metric_type\"),\n",
+    "                    \"value\": extraction.get(\"value\"),\n",
+    "                    \"ci\": extraction.get(\"ci\"),\n",
+    "                    \"evidence_snippet\": extraction.get(\"evidence_snippet\")\n",
+    "                }\n",
+    "                final_database.append(final_record)\n",
+    "                print(f\"[PASS] ID: {article_id} | {final_record['disease']} {final_record['metric']}: {final_record['value']}\")\n",
+    "                \n",
+    "            else:\n",
+    "                # print(f\"[FAIL] ID: {article_id} | Reason: {critique.get('reason')}\")\n",
+    "                pass\n",
+    "                \n",
+    "        except:\n",
+    "            print(\"[Agent B] Critical Error parsing critique JSON.\")\n",
+    "            \n",
+    "        audit_queue.task_done()\n",
+    "    print(\"\\n[Agent B] Shutting down.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "80ea69b6-ae01-4bd8-8702-1f39346fb92f",
+   "metadata": {},
+   "source": [
+    "4. Main Execution Block\n",
+    "\n",
+    "This block initializes the entire system.\n",
+    "\n",
+    "Loads Agent A onto GPU 0.\n",
+    "\n",
+    "Loads Agent B onto GPU 1.\n",
+    "\n",
+    "Creates the communication queues.\n",
+    "\n",
+    "Starts the worker threads.\n",
+    "\n",
+    "Feeds the data and waits for completion."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1a03586d-2e1f-4874-89c4-6e943bdaa556",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "[System] Loading Qwen/Qwen2.5-32B-Instruct on cuda:0...\n"
+     ]
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "4f0b0c7ca25d41c8867452b39fa08b96",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "config.json:   0%|          | 0.00/663 [00:00<?, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "9ffada610bc745d5b9eea2c0075e67fb",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "tokenizer_config.json: 0.00B [00:00, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "7592132d861447e796611327ba0a1cee",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "vocab.json: 0.00B [00:00, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "53772041265a4f9e800f65a15038fc9f",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "merges.txt: 0.00B [00:00, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "91c2ef4b6aa8457ea7ca29fee70f56a5",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "tokenizer.json: 0.00B [00:00, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "68a50cb09fcf4b5fbe965f432f4ad69d",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "model.safetensors.index.json: 0.00B [00:00, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "cd791415cac749a08b56de0412846f7f",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Downloading (incomplete total...): 0.00B [00:00, ?B/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "846c843fdadd416fa8744ab0cc17c14d",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# --- 1. Load Models (This takes time, do it once) ---\n",
+    "# GPU 0: Extractor (Qwen)\n",
+    "model_a, tok_a, dev_a = load_permanent_model(\"Qwen/Qwen2.5-32B-Instruct\", gpu_id=0)\n",
+    " "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "be592ecd-5b38-459d-8ca3-1d5c97e343c2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# GPU 1: Critic (Gemma)\n",
+    "model_b, tok_b, dev_b = load_permanent_model(\"google/gemma-2-27b-it\", gpu_id=1)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a4c58312-97ce-489c-9516-e61f28be50a5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# --- 2. Setup Queues ---\n",
+    "# Holds raw text\n",
+    "abstract_queue = Queue()\n",
+    "# Holds (text + extraction) waiting for audit\n",
+    "audit_queue = Queue()\n",
+    "# Holds final results\n",
+    "final_database = []\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ceb5bdb9-01c6-4a3a-bac6-ba3374a7c40f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# --- 3. Start Threads ---\n",
+    "t1 = threading.Thread(target=agent_a_worker, args=(abstract_queue, audit_queue, model_a, tok_a, dev_a))\n",
+    "t2 = threading.Thread(target=agent_b_worker, args=(audit_queue, final_database, model_b, tok_b, dev_b))\n",
+    "    \n",
+    "t1.start()\n",
+    "t2.start()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "316227b4-b850-43a8-aa10-d0e8a1516559",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# --- 4. Feed Data ---\n",
+    "sample_abstracts = [\n",
+    "        \"Background: COVID-19 in Italy. Results: R0 was 3.1 (95% CI: 2.9-3.4).\",\n",
+    "        \"Methods: We studied Measles in London. Findings: The effective reproduction number (Rt) was 1.2.\",\n",
+    "        \"Results: In Wuhan, the transmission rate was high.\" # Missing numbers test\n",
+    "    ]\n",
+    "    \n",
+    "    print(\"\\n[System] Pipeline started. Feeding abstracts...\")\n",
+    "    for text in sample_abstracts:\n",
+    "        abstract_queue.put(text)\n",
+    "    \n",
+    "# Send Stop Signal to Agent A (who will pass it to Agent B)\n",
+    "abstract_queue.put(None)\n",
+    "   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "77b6391e-98b5-4246-afb1-0303ac8e4d43",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "    # --- 5. Wait for Finish ---\n",
+    "    t1.join()\n",
+    "    t2.join()\n",
+    "    \n",
+    "    print(\"\\n[System] All threads finished.\")\n",
+    "    print(f\"Total Records Processed: {len(final_database)}\")\n",
+    "    print(\"Sample Result:\", json.dumps(final_database[0], indent=2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e432efdc-6541-4b76-b796-9f27e9b53fa0",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.19"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
