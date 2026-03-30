@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[Ebola virus disease (EVD) has erupted many times in some zones since it was first found in 1976. The 2014 EVD outbreak in West Africa is the largest ever, which has caused a large number of deaths and the most serious country is Liberia during the outbreak period. Based on the data released by World Health Organization and the actual transmission situations, we investigate the impact of different transmission routes on the EVD outbreak in Liberia and estimate the basic reproduction number R0 = 2.012 in the absence of effective control measures. Through sensitivity and uncertainty analysis, we reveal that the transmission coefficients of suspected and probable cases have stronger correlations on the basic reproduction number. Furthermore, we study the influence of control measures (isolation and safe burial measures) on EVD outbreak. It is found that if combined control measures are taken, the basic reproduction number will be less than one and thus EVD in Liberia may be well contained. The obtained results may provide new guidance to prevent and control the spread of disease.]]></TEXT>
+<TAGS>
+<LOCATION spans="443~450" text="Liberia" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<R0_value spans="498~504" text=" 2.012" id="R00" vlue=""/>
+<DISEASE spans="0~5" text="Ebola" id="D0" normalized="NA" comment="NA"/>
+</TAGS>
+<META/>
+</R0_RT_ANNOTATION_SCHEMA>

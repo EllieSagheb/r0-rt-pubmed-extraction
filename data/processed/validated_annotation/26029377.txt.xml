@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[The unprecedented scale of the Ebola outbreak in West Africa has, as of 29 April 2015, resulted in more than 10,884 deaths among 26,277 cases. Prior to the ongoing outbreak, Ebola virus disease (EVD) caused relatively small outbreaks (maximum outbreak size 425 in Gulu, Uganda) in isolated populations in central Africa. Here, we have compiled a comprehensive database of estimates of epidemiological parameters based on data from past outbreaks, including the incubation period distribution, case fatality rate, basic reproduction number (R 0 ), effective reproduction number (R t ) and delay distributions. We have compared these to parameter estimates from the ongoing outbreak in West Africa. The ongoing outbreak, because of its size, provides a unique opportunity to better understand transmission patterns of EVD. We have not performed a meta-analysis of the data, but rather summarize the estimates by virus from comprehensive investigations of EVD and Marburg outbreaks over the past 40 years. These estimates can be used to parameterize transmission models to improve understanding of initial spread of EVD outbreaks and to inform surveillance and control guidelines.]]></TEXT>
+<TAGS/>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

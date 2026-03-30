@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[More than 600,000 annual arrivals from Africa, 1.4 billion population and developing health care systems render China at non-negligible risk of imported Ebola virus disease (EVD). According to the natural history of EVD, we constructed a deterministic SEIR model. Three published EVD outbreaks in Africa were enrolled to calculate the basic reproduction number (R0) of EVD. Scenarios representing unreported and reported (with n weeks delay) imported EVD in China were simulated to evaluate the effectiveness of interventions assumed to be implemented in different periods of the outbreaks. Based on previous Africa outbreak incidence datasets, our mathematical model predicted the basic reproduction number of EVD in the range of 1.53-3.54. Adopting EVD prevalence at 0.04-0.16% from the same datasets and estimated missing information and monitoring rates at 1-10%, a total of 6-194 imported cases were predicted. Be a single case left unidentified/unreported, total attack rate was predicted to reach 60.19%-96.74%. Curve fitting results showed that earlier intervention benefits in exponential and linear decrease in prevalence and duration of outbreak respectively. Based on past outbreak experience in China, there is a need to implement an internet-based surveillance and monitoring system in order to reinforce health policy, track suspected cases and protect the general public by timely interventions.]]></TEXT>
+<TAGS>
+<R0 spans="682~707" text="basic reproduction number" id="R0" value="NA" comment="NA"/>
+<DISEASE spans="153~158" text="Ebola" id="D0" normalized="NA" comment="NA"/>
+<R0_value spans="731~740" text="1.53-3.54" id="R00" vlue=""/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[Since the re-emergence of Ebola in West Africa in 2014, comprehensive and stringent interventions have been implemented to decelerate the spread of the disease. The effectiveness of interventions still remains unclear. In this paper, we develop an epidemiological model that includes various controlling measures to systematically evaluate their effects on the disease transmission dynamics. By fitting the model to reported cumulative cases and deaths in Guinea, Sierra Leone and Liberia until March 22, 2015, we estimate the basic reproduction number in these countries as 1.2552, 1.6093 and 1.7994, respectively. Model analysis shows that there exists a threshold of the effectiveness of isolation, below which increasing the fraction of latent individuals diagnosed prior to symptoms onset or shortening the duration between symptoms onset and isolation may lead to more Ebola infection. This challenges an existing view. Media coverage plays a substantial role in reducing the final epidemic size. The response to reported cumulative infected cases and deaths may have a different effect on the epidemic spread in different countries. Among all the interventions, we find that shortening the duration between death and burial and improving the effectiveness of isolation are two effective interventions for controlling the outbreak of Ebola virus infection.]]></TEXT>
+<TAGS>
+<DISEASE spans="26~31" text="Ebola" id="D0" normalized="NA" comment="NA"/>
+<R0 spans="575~581" text="1.2552" id="R0" value="NA" comment="NA"/>
+<R0 spans="583~589" text="1.6093" id="R1" value="NA" comment="NA"/>
+<R0 spans="594~600" text="1.7994" id="R2" value="NA" comment="NA"/>
+<LOCATION spans="456~462" text="Guinea" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<LOCATION spans="464~476" text="Sierra Leone" id="L1" granularity="unknown" normalized="NA" comment="NA"/>
+<LOCATION spans="481~488" text="Liberia" id="L2" granularity="unknown" normalized="NA" comment="NA"/>
+<time_frame spans="489~509" text="until March 22, 2015" id="t0" vlaue=""/>
+<R0 spans="527~552" text="basic reproduction number" id="R3" value="NA" comment="NA"/>
+</TAGS>
+<META/>
+</R0_RT_ANNOTATION_SCHEMA>

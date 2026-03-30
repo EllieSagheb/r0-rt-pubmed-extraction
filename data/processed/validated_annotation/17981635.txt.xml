@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[Measles is caused by infection with measles virus (MV), a negative strand RNA virus in the Morbillivirus genus of the Paramyxoviridae family. Measles is a highly infectious disease of humans spread by the respiratory route and characterized by fever and rash. Important complications include secondary infections associated with MV-induced immune suppression and the neurological disease post-infectious encephalomyelitis. The virus was first isolated in 1954 paving the way for development of the vaccines that have played an essential role in decreasing the worldwide morbidity and mortality due to measles. One of the first vaccines was a formalin-inactivated vaccine that provided only short-lived protection from infection and primed for a more severe disease, atypical measles. This vaccine was withdrawn. The other early vaccine was a live attenuated vaccine (LAV) developed by passage of the original isolate of Edmonston virus through cells in culture, primarily chicken cells. LAV was reactogenic and often given along with immune globulin. Further passage of the Edmonston virus resulted in further attenuation and the well-tolerated vaccines in common use today. LAV is generally given between 9 and 15 months of age. Seroconversion at 9 months is about 85% and at 12 months is about 95%. At younger ages seroconversion is hampered by the presence of maternal antibody and the immaturity of the immune system. The R0 (numbers of people in a susceptible population that will be infected by one person with the disease) for MV is 15-20 and interruption of endemic transmission of MV in a population requires that >95% of the population is immune. A second dose is necessary to achieve this level and can be given either as a part of a routine immunization program or through periodic mass vaccination campaigns. Research toward improved measles vaccines has focused on development of a vaccine that could be given before 6 months of age, needle-less delivery and heat stability. Several new recombinant vaccines expressing MV proteins have demonstrated induction of protective immunity in macaques and are in various stages of development.]]></TEXT>
+<TAGS>
+<DISEASE spans="36~43" text="measles" id="D0" normalized="NA" comment="NA"/>
+<DISEASE spans="51~53" text="MV" id="D1" normalized="NA" comment="NA"/>
+<R0_value spans="1540~1545" text="15-20" id="R00" vlue=""/>
+<R0 spans="1426~1428" text="R0" id="R0" value="NA" comment="NA"/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

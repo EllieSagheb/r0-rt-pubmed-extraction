@@ -1,0 +1,15 @@
+[
+  {
+    "disease_query": "Influenza",
+    "pmid": "24452021",
+    "title": "Population-level effects of suppressing fever.",
+    "year": "2014",
+    "text": "Title: Population-level effects of suppressing fever.\nAbstract: Fever is commonly attenuated with antipyretic medication as a means to treat unpleasant symptoms of infectious diseases. We highlight a potentially important negative effect of fever suppression that becomes evident at the population level: reducing fever may increase transmission of associated infections. A higher transmission rate implies that a larger proportion of the population will be infected, so widespread antipyretic drug use is likely to lead to more illness and death than would be expected in a population that was not exposed to antipyretic pharmacotherapies. We assembled the published data available for estimating the magnitudes of these individual effects for seasonal influenza. While the data are incomplete and heterogeneous, they suggest that, overall, fever suppression increases the expected number of influenza cases and deaths in the US: for pandemic influenza with reproduction number , the estimated increase is 1% (95% CI: 0.0-2.7%), whereas for seasonal influenza with , the estimated increase is 5% (95% CI: 0.2-12.1%).",
+    "retry_count": 1,
+    "audit_feedback": "Agent B flagged this abstract-level extraction. Please review and correct.",
+    "failure_reason": "Extraction items present but invalid schema/value",
+    "agent_a_extractions": [],
+    "agent_b_verdict": "FAIL: Extraction items present but invalid schema/value",
+    "no_evidence": false
+  }
+]

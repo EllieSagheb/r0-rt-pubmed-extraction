@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[In the early phase of an emerging pandemic such as A/H1N1v 2009, it is essential to have a good understanding of its transmissibility, which is often summarized by the reproductive number. Before a country is affected, its government may want to make their own assessment of what is going on in areas of the world that have previously been affected by the disease. However, having access to detailed data is problematic. The only publicly available international dataset with information for a large number of countries was the WHO cumulated case counts per country. In this paper, we show how and in which situations the recorded history of cumulated case counts provides valuable information to estimate the effective reproductive number in an early phase and for a large number of countries.]]></TEXT>
+<TAGS>
+<DISEASE spans="52~58" text="/H1N1v" id="D0" normalized="NA" comment="NA"/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

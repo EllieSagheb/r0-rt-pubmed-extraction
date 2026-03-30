@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[Timely estimation of the transmissibility of a novel pandemic influenza virus was a public health priority in 2009. We extended methods for prospective estimation of the effective reproduction number (Rt) over time in an emerging epidemic to allow for reporting delays and repeated importations. We estimated Rt based on case notifications and hospitalizations associated with laboratory-confirmed pandemic (H1N1) 2009 virus infections in Hong Kong from June through October 2009. Rt declined from around 1.4-1.5 at the start of the local epidemic to around 1.1-1.2 later in the summer, suggesting changes in transmissibility perhaps related to school vacations or seasonality. Estimates of Rt based on hospitalizations of confirmed H1N1 cases closely matched estimates based on case notifications. Real-time monitoring of the effective reproduction number is feasible and can provide useful information to public health authorities for situational awareness and calibration of mitigation strategies.]]></TEXT>
+<TAGS>
+<RT spans="558~565" text="1.1-1.2" id="RT0" value="NA" comment="NA"/>
+<time_frame spans="520~548" text="start of the local epidemic " id="t1" vlaue="June 2009"/>
+<DISEASE spans="62~71" text="influenza" id="D0" normalized="NA" comment="NA"/>
+<DISEASE spans="408~412" text="H1N1" id="D1" normalized="NA" comment="NA"/>
+<LOCATION spans="439~448" text="Hong Kong" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<time_frame spans="454~458" text="June" id="t2" vlaue=""/>
+<time_frame spans="467~479" text="October 2009" id="t3" vlaue=""/>
+<time_frame spans="566~586" text="later in the summer," id="t4" vlaue="coudl be better like October 2009"/>
+<RT spans="481~483" text="Rt" id="RT2" value="NA" comment="NA"/>
+<Rt_value spans="505~512" text="1.4-1.5" id="Rt0" vlaue=""/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

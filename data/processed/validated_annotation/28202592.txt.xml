@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[A zoonotic disease is a disease that can be passed from animals to humans. Zoonotic viruses may adapt to a human host eventually becoming endemic in humans, but before doing so punctuated outbreaks of the zoonotic virus may be observed. The Ebola virus disease (EVD) is an example of such a disease. The animal population in which the disease agent is able to reproduce in sufficient number to be able to transmit to a susceptible human host is called a reservoir. There is little work devoted to understanding stochastic population dynamics in the presence of a reservoir, specifically the phenomena of disease extinction and reintroduction. Here, we build a stochastic EVD model and explicitly consider the impacts of an animal reservoir on the disease persistence. Our modelling approach enables the analysis of invasion and fade-out dynamics, including the efficacy of possible intervention strategies. We investigate outbreak vulnerability and the probability of local extinction and quantify the effective basic reproduction number. We also consider the effects of dynamic population size. Our results provide an improved understanding of outbreak and extinction dynamics in zoonotic diseases, such as EVD.]]></TEXT>
+<TAGS/>
+<META/>
+</R0_RT_ANNOTATION_SCHEMA>

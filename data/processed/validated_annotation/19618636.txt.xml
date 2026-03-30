@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[The poultry epidemic of H7N7 highly pathogenic avian influenza (HPAI) virus in the Netherlands in 2003 was probably the result of the introduction of an H7N7 low pathogenic avian influenza (LPAI) virus (by interspecies transmission from wild birds) and the subsequent intraspecies transmission of this virus in poultry. The intraspecies transmission of the ensuing H7N7 HPAI virus was very successful both within and between flocks. Consequently, in the two poultry-dense areas that were affected, the epidemic could only be stopped by eliminating all poultry in the region. According to the spatial models these are the only areas where this was the case in the Netherlands. There was also interspecies transmission to mammals, i.e., to pigs and to humans. For pigs it was shown that possible subsequent intraspecies transmission was negligible (R0 <1). With hindsight the same was probably also true for humans.]]></TEXT>
+<TAGS>
+<DISEASE spans="53~62" text="influenza" id="D0" normalized="NA" comment="NA"/>
+<DISEASE spans="63~76" text="(HPAI) virus " id="D1" normalized="NA" comment="NA"/>
+<time_frame spans="95~103" text="in 2003 " id="t0" vlaue=""/>
+<R0_value spans="847~852" text="R0 &lt;1" id="R00" vlue=""/>
+<LOCATION spans="83~93" text="Netherland" id="L1" granularity="unknown" normalized="NA" comment="NA"/>
+<Population spans="762~766" text="pigs" id="P0" value=""/>
+</TAGS>
+<META>
+<label color="yellow"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

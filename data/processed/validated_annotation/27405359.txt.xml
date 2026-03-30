@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[The 2014 Ebola epidemic is the largest in history, affecting multiple countries in West Africa. Some isolated cases were also observed in other regions of the world. In this paper, we introduce a deterministic SEIR type model with additional hospitalization, quarantine and vaccination components in order to understand the disease dynamics. Optimal control strategies, both in the case of hospitalization (with and without quarantine) and vaccination are used to predict the possible future outcome in terms of resource utilization for disease control and the effectiveness of vaccination on sick populations. Further, with the help of uncertainty and sensitivity analysis we also have identified the most sensitive parameters which effectively contribute to change the disease dynamics. We have performed mathematical analysis with numerical simulations and optimal control strategies on Ebola virus models. We used dynamical system tools with numerical simulations and optimal control strategies on our Ebola virus models. The original model, which allowed transmission of Ebola virus via human contact, was extended to include imperfect vaccination and quarantine. After the qualitative analysis of all three forms of Ebola model, numerical techniques, using MATLAB as a platform, were formulated and analyzed in detail. Our simulation results support the claims made in the qualitative section. Our model incorporates an important component of individuals with high risk level with exposure to disease, such as front line health care workers, family members of EVD patients and Individuals involved in burial of deceased EVD patients, rather than the general population in the affected areas. Our analysis suggests that in order for R 0 (i.e., the basic reproduction number) to be less than one, which is the basic requirement for the disease elimination, the transmission rate of isolated individuals should be less than one-fourth of that for non-isolated ones. Our analysis also predicts, we need high levels of medication and hospitalization at the beginning of an epidemic. Further, optimal control analysis of the model suggests the control strategies that may be adopted by public health authorities in order to reduce the impact of epidemics like Ebola.]]></TEXT>
+<TAGS>
+<DISEASE spans="1076~1081" text="Ebola" id="D0" normalized="NA" comment="NA"/>
+<LK_DISEASE_LOCATION id="LK0" comment="NA"/>
+<DISEASE spans="1566~1569" text="EVD" id="D1" normalized="NA" comment="NA"/>
+<DISEASE spans="1222~1227" text="Ebola" id="D2" normalized="NA" comment="NA"/>
+</TAGS>
+<META>
+<label color="yellow"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

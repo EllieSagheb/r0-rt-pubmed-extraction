@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[Fever is commonly attenuated with antipyretic medication as a means to treat unpleasant symptoms of infectious diseases. We highlight a potentially important negative effect of fever suppression that becomes evident at the population level: reducing fever may increase transmission of associated infections. A higher transmission rate implies that a larger proportion of the population will be infected, so widespread antipyretic drug use is likely to lead to more illness and death than would be expected in a population that was not exposed to antipyretic pharmacotherapies. We assembled the published data available for estimating the magnitudes of these individual effects for seasonal influenza. While the data are incomplete and heterogeneous, they suggest that, overall, fever suppression increases the expected number of influenza cases and deaths in the US: for pandemic influenza with reproduction number , the estimated increase is 1% (95% CI: 0.0-2.7%), whereas for seasonal influenza with , the estimated increase is 5% (95% CI: 0.2-12.1%).]]></TEXT>
+<TAGS>
+<DISEASE spans="690~699" text="influenza" id="D0" normalized="NA" comment="missing in LLM output"/>
+<CI_value spans="955~963" text="0.0-2.7%" id="CI0" value=""/>
+<R0_value spans="931~946" text="increase is 1% " id="R00" vlue=""/>
+<time_frame spans="872~889" text="andemic influenza" id="t0" vlaue=""/>
+<time_frame spans="978~996" text="seasonal influenza" id="t1" vlaue=""/>
+</TAGS>
+<META>
+<label color="red"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

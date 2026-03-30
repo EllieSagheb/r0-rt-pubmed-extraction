@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[The continued elimination of measles requires accurate assessment of its epidemiology and a critical evaluation of how its incidence is changing with time. National surveillance of measles in the United States between 2001 and 2011 provides data on the number of measles introductions and the size of the resulting transmission chains. These data allow inference of the effective reproduction number, Reff, and the probability of an outbreak occurring. Our estimate of 0.52 (95% confidence interval: 0.44, 0.60) for Reff is smaller than prior results. Our findings are relatively insensitive to the possibility that as few as 75% of cases were detected. Although we confirm that measles remains eliminated, we identify an increasing trend in the number of measles cases with time. We show that this trend is likely attributable to an increase in the number of disease introductions rather than a change in the transmissibility of measles. However, we find that transmissibility may increase substantially if vaccine coverage drops by as little as 1%. Our general approach of characterizing the case burden of measles is applicable to the epidemiologic assessment of other weakly transmitting or vaccine-controlled pathogens that are either at risk of emerging or on the brink of elimination.]]></TEXT>
+<TAGS>
+<DISEASE spans="29~36" text="measles" id="D0" normalized="NA" comment="NA"/>
+<LOCATION spans="195~209" text=" United States" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<time_frame spans="210~231" text="between 2001 and 2011" id="t0" vlaue=""/>
+<CI_value spans="500~510" text="0.44, 0.60" id="CI0" value=""/>
+<Rt_value spans="468~473" text=" 0.52" id="Rt0" vlaue=""/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

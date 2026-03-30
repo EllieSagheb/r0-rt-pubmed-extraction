@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[Substantial heterogeneity in measles outbreak sizes may be due to genotype-specific transmissibility. Using a branching process analysis, we characterize differences in measles transmission by estimating the association between genotype and the reproduction number R among postelimination California measles cases during 2000-2015 (400 cases, 165 outbreaks). Assuming a negative binomial secondary case distribution, we fit a branching process model to the distribution of outbreak sizes using maximum likelihood and estimated the reproduction number R for a multigenotype model. Genotype B3 is found to be significantly more transmissible than other genotypes (P = .01) with an R of 0.64 (95% confidence interval [CI], .48-.71), while the R for all other genotypes combined is 0.43 (95% CI, .28-.54). This result is robust to excluding the 2014-2015 outbreak linked to Disneyland theme parks (referred to as "outbreak A" for conciseness and clarity) (P = .04) and modeling genotype as a random effect (P = .004 including outbreak A and P = .02 excluding outbreak A). This result was not accounted for by season of introduction, age of index case, or vaccination of the index case. The R for outbreaks with a school-aged index case is 0.69 (95% CI, .52-.78), while the R for outbreaks with a non-school-aged index case is 0.28 (95% CI, .19-.35), but this cannot account for differences between genotypes. Variability in measles transmissibility may have important implications for measles control; the vaccination threshold required for elimination may not be the same for all genotypes or age groups.]]></TEXT>
+<TAGS>
+<Population spans="272~300" text=" postelimination California " id="P0" value=""/>
+<DISEASE spans="300~307" text="measles" id="D0" normalized="NA" comment="NA"/>
+<time_frame spans="321~330" text="2000-2015" id="t0" vlaue=""/>
+<R0_value spans="684~688" text="0.64" id="R00" vlue=""/>
+<CI_value spans="720~727" text=".48-.71" id="CI0" value=""/>
+<Population spans="746~774" text="all other genotypes combined" id="P1" value=""/>
+<R0_value spans="778~782" text="0.43" id="R01" vlue=""/>
+<CI_value spans="788~799" text="CI, .28-.54" id="CI1" value=""/>
+<Population spans="651~660" text="genotypes" id="P2" value=""/>
+<Population spans="1193~1226" text="utbreaks with a school-aged index" id="P3" value=""/>
+<R0_value spans="1235~1239" text="0.69" id="R02" vlue=""/>
+<Population spans="1292~1312" text="non-school-aged inde" id="P4" value=""/>
+<R0_value spans="1321~1326" text=" 0.28" id="R03" vlue=""/>
+</TAGS>
+<META>
+<label color="red"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

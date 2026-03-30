@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[On March 23, 2014, the World Health Organization (WHO) was notified of an outbreak of Ebola virus disease (EVD) in Guinea. On August 8, the WHO declared the epidemic to be a "public health emergency of international concern." By September 14, 2014, a total of 4507 probable and confirmed cases, including 2296 deaths from EVD (Zaire species) had been reported from five countries in West Africa--Guinea, Liberia, Nigeria, Senegal, and Sierra Leone. We analyzed a detailed subset of data on 3343 confirmed and 667 probable Ebola cases collected in Guinea, Liberia, Nigeria, and Sierra Leone as of September 14. The majority of patients are 15 to 44 years of age (49.9% male), and we estimate that the case fatality rate is 70.8% (95% confidence interval [CI], 69 to 73) among persons with known clinical outcome of infection. The course of infection, including signs and symptoms, incubation period (11.4 days), and serial interval (15.3 days), is similar to that reported in previous outbreaks of EVD. On the basis of the initial periods of exponential growth, the estimated basic reproduction numbers (R0 ) are 1.71 (95% CI, 1.44 to 2.01) for Guinea, 1.83 (95% CI, 1.72 to 1.94) for Liberia, and 2.02 (95% CI, 1.79 to 2.26) for Sierra Leone. The estimated current reproduction numbers (R) are 1.81 (95% CI, 1.60 to 2.03) for Guinea, 1.51 (95% CI, 1.41 to 1.60) for Liberia, and 1.38 (95% CI, 1.27 to 1.51) for Sierra Leone; the corresponding doubling times are 15.7 days (95% CI, 12.9 to 20.3) for Guinea, 23.6 days (95% CI, 20.2 to 28.2) for Liberia, and 30.2 days (95% CI, 23.6 to 42.3) for Sierra Leone. Assuming no change in the control measures for this epidemic, by November 2, 2014, the cumulative reported numbers of confirmed and probable cases are predicted to be 5740 in Guinea, 9890 in Liberia, and 5000 in Sierra Leone, exceeding 20,000 in total. These data indicate that without drastic improvements in control measures, the numbers of cases of and deaths from EVD are expected to continue increasing from hundreds to thousands per week in the coming months.]]></TEXT>
+<TAGS>
+<R0_value spans="1112~1116" text="1.71" id="R00" vlue=""/>
+<Rt_value spans="1126~1138" text="1.44 to 2.01" id="Rt0" vlaue=""/>
+<LOCATION spans="1144~1150" text="Guinea" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<LK_R0_LOCATION id="LK_R0_0" link_R0ID="L0" link_R0Text="Guinea" link_LOCATIONID="R00" link_LOCATIONText="1.71"/>
+<LK_R0_CI id="LK_R00" link_R0ID="Rt0" link_R0Text="1.44 to 2.01" link_CIID="R00" link_CIText="1.71" comment="NA"/>
+<R0_value spans="1152~1156" text="1.83" id="R01" vlue=""/>
+<CI spans="1166~1178" text="1.72 to 1.94" id="C0" value="NA" level="95" ci_type="CI"/>
+<LOCATION spans="1184~1191" text="Liberia" id="L1" granularity="unknown" normalized="NA" comment="NA"/>
+<LK_R0_LOCATION id="LK_R0_1" link_R0ID="L1" link_R0Text="Liberia" link_LOCATIONID="R01" link_LOCATIONText="1.83"/>
+<LK_R0_CI id="LK_R01" link_R0ID="C0" link_R0Text="1.72 to 1.94" link_CIID="R01" link_CIText="1.83" comment="NA"/>
+<R0_value spans="1196~1203" text=" 2.02 (" id="R02" vlue=""/>
+<LOCATION spans="1229~1241" text="Sierra Leone" id="L2" granularity="unknown" normalized="NA" comment="NA"/>
+<LK_R0_LOCATION id="LK_R0_2" link_R0ID="L2" link_R0Text="Sierra Leone" link_LOCATIONID="R02" link_LOCATIONText=" 2.02 ("/>
+<CI_value spans="1211~1223" text="1.79 to 2.26" id="CI0" value=""/>
+<LK_R0_CI id="LK_R02" link_R0ID="CI0" link_R0Text="1.79 to 2.26" link_CIID="R02" link_CIText=" 2.02 (" comment="NA"/>
+<CI_value spans="1308~1320" text="1.60 to 2.03" id="CI1" value=""/>
+<LOCATION spans="1326~1332" text="Guinea" id="L3" granularity="unknown" normalized="NA" comment="NA"/>
+<Rt_value spans="1293~1300" text=" 1.81 (" id="Rt1" vlaue=""/>
+<LK_RT_CI id="LK_RT0" link_RTID="CI1" link_RTText="1.60 to 2.03" link_CIID="Rt1" link_CIText=" 1.81 (" comment="NA"/>
+<LK_RT_LOCATIO id="LK_RT_0" link_RTID="L3" link_RTText="Guinea" link_LOCATIONID="Rt1" link_LOCATIONText=" 1.81 ("/>
+<LK_RT_CI id="LK_RT1" link_RTID="CI1" link_RTText="1.60 to 2.03" link_CIID="Rt1" link_CIText=" 1.81 (" comment="NA"/>
+<CI_value spans="1348~1360" text="1.41 to 1.60" id="CI2" value=""/>
+<LOCATION spans="1366~1373" text="Liberia" id="L4" granularity="unknown" normalized="NA" comment="NA"/>
+<CI spans="1393~1407" text="1.27 to 1.51) " id="C1" value="NA" level="95" ci_type="CI"/>
+<LOCATION spans="1411~1423" text="Sierra Leone" id="L5" granularity="unknown" normalized="NA" comment="NA"/>
+<CI spans="1389~1391" text="CI" id="C2" value="NA" level="95" ci_type="CI"/>
+<LK_RT_CI id="LK_RT3" link_RTID="C1" link_RTText="1.27 to 1.51) " link_CIID="C1" link_CIText="1.27 to 1.51) " comment="NA"/>
+<Rt_value spans="1334~1338" text="1.51" id="Rt2" vlaue=""/>
+<RT spans="1258~1288" text="urrent reproduction numbers (R" id="RT1" value="NA" comment="NA"/>
+<Rt_value spans="1378~1384" text=" 1.38 " id="Rt3" vlaue=""/>
+<Other_important_tags spans="1429~1457" text="corresponding doubling times" id="O0" value=""/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[We measured the reproduction number before and after interventions were implemented to reduce Ebola transmission in 9 outbreaks in Liberia during 2014. We evaluated risk factors for secondary cases and the association between patient admission to an Ebola treatment unit (ETU) and survival. The reproduction number declined 94% from 1.7 (95% CI 1.1-2.6) to 0.1 (95% CI 0.02-0.6) after interventions began. The risk for secondary infections was 90% lower for patients admitted to an ETU (risk ratio 0.1, 95% CI 0.04-0.3) than for those who died in the community. The case-fatality rate was 68% (95% CI 60-74), and ETU admission was associated with a 50% reduction in death (hazard ratio 0.5, 95% CI 0.4-0.8). Isolation and treatment of Ebola patients had the dual benefit of interrupting community transmission and improving survival.]]></TEXT>
+<TAGS>
+<CI_value spans="345~352" text="1.1-2.6" id="CI0" value=""/>
+<CI_value spans="366~377" text="CI 0.02-0.6" id="CI1" value=""/>
+<DISEASE spans="94~99" text="Ebola" id="D0" normalized="NA" comment="NA"/>
+<LOCATION spans="131~138" text="Liberia" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<time_frame spans="379~404" text="after interventions began" id="T0" vlaue=""/>
+<Rt_value spans="333~337" text="1.7 " id="Rt0" vlaue=""/>
+<Rt_value spans="357~360" text="0.1" id="Rt1" vlaue=""/>
+</TAGS>
+<META/>
+</R0_RT_ANNOTATION_SCHEMA>

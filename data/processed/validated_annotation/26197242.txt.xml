@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[The 2014 Ebola Virus Disease (EVD) outbreak in West Africa was the largest and longest ever reported since the first identification of this disease. We propose a compartmental model for EVD dynamics, including virus transmission in the community, at hospitals, and at funerals. Using time-dependent parameters, we incorporate the increasing intensity of intervention efforts. Fitting the system to the early phase of the 2014 West Africa Ebola outbreak, we estimate the basic reproduction number as 1.44. We derive a final size relation which allows us to forecast the total number of cases during the outbreak when effective interventions are in place. Our model predictions show that, as long as cases are reported in any country, intervention strategies cannot be dismissed. Since the main driver in the current slowdown of the epidemic is not the depletion of susceptibles, future waves of infection might be possible, if control measures or population behavior are relaxed.]]></TEXT>
+<TAGS>
+<R0 spans="476~495" text="reproduction number" id="R0" value="NA" comment="NA"/>
+<R0_value spans="499~503" text="1.44" id="R00" vlue=""/>
+<DISEASE spans="9~14" text="Ebola" id="D0" normalized="NA" comment="NA"/>
+<LOCATION spans="47~58" text="West Africa" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<time_frame spans="375~425" text=" Fitting the system to the early phase of the 2014" id="t0" vlaue=""/>
+</TAGS>
+<META>
+<label color="yellow"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[To weigh the evidence from outbreak data that Victoria has achieved, and is maintaining, elimination of measles. To identify age groups that measles vaccination has not protected adequately. Data on observed measles outbreaks in Victoria since the start of 1998 are used to estimate the reproduction number of cases, and the probability that it is maintained below unity, its threshold value for elimination. The relative susceptibility to measles is estimated as a function of age, with confidence intervals. Seventeen measles introductions led to secondary cases, while 22 were single-case introductions. From these, the probability that the reproduction number for cases exceeds unity is estimated to be 0.044, or less, depending on assumptions made. There is no evidence that the reproduction number increased over time. Those aged between 19 and 32 years were most susceptible, followed by those in the first and second year of life. The data provide strong evidence that Victoria has maintained elimination of measles over the period 1998 to mid-2003. There is scope to improve the immunisation coverage. It is not clear how much outbreak intervention is contributing to the success in achieving apparent elimination. To prevent importations from causing a major epidemic of measles, Victoria must maintain its immunisation coverage and outbreak control at current levels, or better. It is important to monitor the control of measles even when elimination is achieved.]]></TEXT>
+<TAGS/>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

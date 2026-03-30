@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[We develop a simple ordinary differential equation model to study the epidemiological consequences of the drift mechanism for influenza A viruses. Improving over the classical SIR approach, we introduce a fourth class (C) for the cross-immune individuals in the population, i.e., those that recovered after being infected by different strains of the same viral subtype in the past years. The SIRC model predicts that the prevalence of a virus is maximum for an intermediate value of R(0), the basic reproduction number. Via a bifurcation analysis of the model, we discuss the effect of seasonality on the epidemiological regimes. For realistic parameter values, the model exhibits a rich variety of behaviors, including chaos and multi-stable periodic outbreaks. Comparison with empirical evidence shows that the simulated regimes are qualitatively and quantitatively consistent with reality, both for tropical and temperate countries. We find that the basins of attraction of coexisting cycles can be fractal sets, thus predictability can in some cases become problematic even theoretically. In accordance with previous studies, we find that increasing cross-immunity tends to complicate the dynamics of the system.]]></TEXT>
+<TAGS>
+<DISEASE spans="125~145" text=" influenza A viruses" id="D0" normalized="NA" comment="NA"/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

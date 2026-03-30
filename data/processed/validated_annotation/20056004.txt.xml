@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[In many parts of the world, the exponential growth rate of infections during the initial epidemic phase has been used to make statistical inferences on the reproduction number, R, a summary measure of the transmission potential for the novel influenza A (H1N1) 2009. The growth rate at the initial stage of the epidemic in Japan led to estimates for R in the range 2.0 to 2.6, capturing the intensity of the initial outbreak among school-age children in May 2009. An updated estimate of R that takes into account the epidemic data from 29 May to 14 July is provided. An age-structured renewal process is employed to capture the age-dependent transmission dynamics, jointly estimating the reproduction number, the age-dependent susceptibility and the relative contribution of imported cases to secondary transmission. Pitfalls in estimating epidemic growth rates are identified and used for scrutinizing and re-assessing the results of our earlier estimate of R. Maximum likelihood estimates of R using the data from 29 May to 14 July ranged from 1.21 to 1.35. The next-generation matrix, based on our age-structured model, predicts that only 17.5% of the population will experience infection by the end of the first pandemic wave. Our earlier estimate of R did not fully capture the population-wide epidemic in quantifying the next-generation matrix from the estimated growth rate during the initial stage of the pandemic in Japan. In order to quantify R from the growth rate of cases, it is essential that the selected model captures the underlying transmission dynamics embedded in the data. Exploring additional epidemiological information will be useful for assessing the temporal dynamics. Although the simple concept of R is more easily grasped by the general public than that of the next-generation matrix, the matrix incorporating detailed information (e.g., age-specificity) is essential for reducing the levels of uncertainty in predictions and for assisting public health policymaking. Model-based prediction and policymaking are best described by sharing fundamental notions of heterogeneous risks of infection and death with non-experts to avoid potential confusion and/or possible misuse of modelling results.]]></TEXT>
+<TAGS>
+<R0 spans="364~375" text=" 2.0 to 2.6" id="R0" value="R0 because early pandamic" comment="NA"/>
+<LOCATION spans="323~329" text="Japan " id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<DISEASE spans="242~251" text="influenza" id="D0" normalized="NA" comment="NA"/>
+<DISEASE spans="255~259" text="H1N1" id="D1" normalized="NA" comment="NA"/>
+<time_frame spans="1012~1033" text="rom 29 May to 14 July" id="t0" vlaue=""/>
+<time_frame spans="285~320" text=" the initial stage of the epidemic " id="t1" vlaue="the time frame was missing in llm output"/>
+<time_frame spans="531~554" text="from 29 May to 14 July " id="t2" vlaue=""/>
+<Rt_value spans="1046~1058" text="1.21 to 1.35" id="Rt0" vlaue=""/>
+<time_frame spans="454~463" text="May 2009." id="t3" vlaue="the time fram was missing"/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

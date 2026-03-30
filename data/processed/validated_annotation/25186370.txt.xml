@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[The potential impact of an influenza pandemic can be assessed by calculating a set of transmissibility parameters, the most important being the reproduction number (R), which is defined as the average number of secondary cases generated per typical infectious case. We conducted a systematic review to summarize published estimates of R for pandemic or seasonal influenza and for novel influenza viruses (e.g. H5N1). We retained and summarized papers that estimated R for pandemic or seasonal influenza or for human infections with novel influenza viruses. The search yielded 567 papers. Ninety-one papers were retained, and an additional twenty papers were identified from the references of the retained papers. Twenty-four studies reported 51 R values for the 1918 pandemic. The median R value for 1918 was 1.80 (interquartile range [IQR]: 1.47-2.27). Six studies reported seven 1957 pandemic R values. The median R value for 1957 was 1.65 (IQR: 1.53-1.70). Four studies reported seven 1968 pandemic R values. The median R value for 1968 was 1.80 (IQR: 1.56-1.85). Fifty-seven studies reported 78 2009 pandemic R values. The median R value for 2009 was 1.46 (IQR: 1.30-1.70) and was similar across the two waves of illness: 1.46 for the first wave and 1.48 for the second wave. Twenty-four studies reported 47 seasonal epidemic R values. The median R value for seasonal influenza was 1.28 (IQR: 1.19-1.37). Four studies reported six novel influenza R values. Four out of six R values were <1. These R values represent the difference between epidemics that are controllable and cause moderate illness and those causing a significant number of illnesses and requiring intensive mitigation strategies to control. Continued monitoring of R during seasonal and novel influenza outbreaks is needed to document its variation before the next pandemic.]]></TEXT>
+<TAGS>
+<DISEASE spans="27~36" text="influenza" id="D0" normalized="NA" comment="IQR is not confidece interval"/>
+<DISEASE spans="410~414" text="H5N1" id="D1" normalized="NA" comment="NA"/>
+<time_frame spans="800~804" text="1918" id="t0" vlaue=""/>
+<R0_value spans="809~814" text="1.80 " id="R00" vlue=""/>
+<time_frame spans="881~885" text="1957" id="t1" vlaue=""/>
+<R0_value spans="937~941" text="1.65" id="R02" vlue=""/>
+<time_frame spans="762~776" text="1918 pandemic." id="t2" vlaue=""/>
+<CI_value spans="842~851" text="1.47-2.27" id="CI0" value=""/>
+<CI_value spans="948~957" text="1.53-1.70" id="CI1" value=""/>
+<R0_value spans="905~959" text="The median R value for 1957 was 1.65 (IQR: 1.53-1.70)." id="R03" vlue=""/>
+<time_frame spans="1035~1039" text="1968" id="t3" vlaue=""/>
+<R0_value spans="1044~1048" text="1.80" id="R04" vlue=""/>
+<CI_value spans="1050~1065" text="IQR: 1.56-1.85)" id="CI2" value=""/>
+<time_frame spans="1146~1150" text="2009" id="t4" vlaue=""/>
+<R0_value spans="1155~1159" text="1.46" id="R05" vlue=""/>
+<CI_value spans="1161~1175" text="IQR: 1.30-1.70" id="CI3" value=""/>
+<time_frame spans="1312~1329" text="seasonal epidemic" id="t5" vlaue=""/>
+<R0_value spans="1386~1391" text="1.28 " id="R06" vlue=""/>
+<CI_value spans="1392~1407" text="IQR: 1.19-1.37)" id="CI4" value=""/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

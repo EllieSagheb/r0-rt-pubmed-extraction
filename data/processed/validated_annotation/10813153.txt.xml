@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[From March to July 1996 a measles outbreak occurred in northern Luxembourg with 110 reported cases centered around two primary schools (85 cases) and the surrounding community (25 cases). Eighty four suspected cases were confirmed serologically. Vaccine coverage was estimated from questionnaire-based surveys at the two primary schools to be 70 and 76%, respectively. Vaccine efficacy during the outbreak was estimated to be 94.6% [95% confidence interval (CI) 90.4-97.0]. Using the information from the, school surveys, we obtained estimates of the basic reproduction number of measles of 7.7 (95% CI 4.4-11.0) and 6.2 (95% CI 3.5-8.9), respectively. Assuming a 95% vaccine efficacy, these estimates correspond to minimal vaccine coverages of 91.6% (95% CI 81.4-95.7) and 88.3% (95% CI 75.5-93.4) which would have been necessary to minimize the chances of a major outbreak occurring. We can confirm that major outbreaks in similar school settings can only be prevented if vaccination coverage exceeds 90%.]]></TEXT>
+<TAGS>
+<time_frame spans="0~23" text="From March to July 1996" id="t0" vlaue=""/>
+<LOCATION spans="54~74" text=" northern Luxembourg" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<DISEASE spans="580~587" text="measles" id="D0" normalized="NA" comment="NA"/>
+<CI_value spans="602~611" text=" 4.4-11.0" id="CI0" value=""/>
+<Population spans="116~146" text="wo primary schools (85 cases) " id="P1" value=""/>
+<Population spans="154~186" text="surrounding community (25 cases)" id="P2" value=""/>
+<Other_important_tags spans="246~262" text="Vaccine coverage" id="O0" value=""/>
+<Other_important_tags spans="368~385" text=" Vaccine efficacy" id="O1" value=""/>
+<CI_value spans="626~636" text="CI 3.5-8.9" id="CI1" value=""/>
+<R0_value spans="590~595" text=" 7.7 " id="R00" vlue=""/>
+<R0_value spans="617~620" text="6.2" id="R01" vlue=""/>
+<Other_important_tags spans="343~353" text="70 and 76%" id="O2" value=""/>
+<Other_important_tags spans="426~471" text="94.6% [95% confidence interval (CI) 90.4-97.0" id="O3" value=""/>
+<R0 spans="551~579" text="basic reproduction number of" id="R0" value="NA" comment="NA"/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

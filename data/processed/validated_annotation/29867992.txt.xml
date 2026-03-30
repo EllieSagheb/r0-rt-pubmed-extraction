@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[The recent West African Ebola virus pandemic, which affected >28,000 individuals increased interest in anti-Ebolavirus vaccination programs. Here, we systematically analyzed the requirements for a prophylactic vaccination program based on the basic reproductive number (<i>R</i><sub>0</sub>, i.e., the number of secondary cases that result from an individual infection). Published <i>R</i><sub>0</sub> values were determined by systematic literature research and ranged from 0.37 to 20. <i>R</i><sub>0</sub>s ≥ 4 realistically reflected the critical early outbreak phases and superspreading events. Based on the <i>R</i><sub>0</sub>, the herd immunity threshold (<i>I</i><sub>c</sub>) was calculated using the equation <i>I</i><sub>c</sub> = 1 - (1/<i>R</i><sub>0</sub>). The critical vaccination coverage (<i>V</i><sub>c</sub>) needed to provide herd immunity was determined by including the vaccine effectiveness (<i>E</i>) using the equation <i>V</i><sub>c</sub> = <i>I</i><sub>c</sub>/<i>E</i>. At an <i>R</i><sub>0</sub> of 4, the <i>I</i><sub>c</sub> is 75% and at an <i>E</i> of 90%, more than 80% of a population need to be vaccinated to establish herd immunity. Such vaccination rates are currently unrealistic because of resistance against vaccinations, financial/logistical challenges, and a lack of vaccines that provide long-term protection against all human-pathogenic Ebolaviruses. Hence, outbreak management will for the foreseeable future depend on surveillance and case isolation. Clinical vaccine candidates are only available for Ebola viruses. Their use will need to be focused on health-care workers, potentially in combination with ring vaccination approaches.]]></TEXT>
+<TAGS>
+<DISEASE spans="24~29" text="Ebola" id="D0" normalized="NA" comment="NA"/>
+<LOCATION spans="11~23" text="West African" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<R0_value spans="509~512" text="≥ 4" id="R00" vlue=""/>
+<R0 spans="487~508" text="&lt;i&gt;R&lt;/i&gt;&lt;sub&gt;0&lt;/sub&gt;s" id="R0" value="NA" comment="NA"/>
+<R0 spans="381~401" text="&lt;i&gt;R&lt;/i&gt;&lt;sub&gt;0&lt;/sub&gt;" id="R1" value="NA" comment="NA"/>
+<R0_value spans="475~486" text="0.37 to 20." id="R01" vlue=""/>
+</TAGS>
+<META/>
+</R0_RT_ANNOTATION_SCHEMA>

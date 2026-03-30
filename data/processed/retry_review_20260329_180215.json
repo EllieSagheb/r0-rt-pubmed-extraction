@@ -1,0 +1,29 @@
+[
+  {
+    "pmid": "24700976",
+    "year": "2014",
+    "retry_count_after_decision": 1,
+    "failure_reason": "Invalid or empty extraction JSON from Agent A",
+    "agent_b_verdict": "FAIL: Invalid or empty extraction JSON from Agent A",
+    "agent_a_extractions": [],
+    "no_evidence": false
+  },
+  {
+    "pmid": "25186370",
+    "year": "2014",
+    "retry_count_after_decision": 1,
+    "failure_reason": "Invalid or empty extraction JSON from Agent A",
+    "agent_b_verdict": "FAIL: Invalid or empty extraction JSON from Agent A",
+    "agent_a_extractions": [],
+    "no_evidence": false
+  },
+  {
+    "pmid": "24700976",
+    "year": "2014",
+    "retry_count_after_decision": 2,
+    "failure_reason": "Invalid or empty extraction JSON from Agent A",
+    "agent_b_verdict": "FAIL: Invalid or empty extraction JSON from Agent A",
+    "agent_a_extractions": [],
+    "no_evidence": false
+  }
+]

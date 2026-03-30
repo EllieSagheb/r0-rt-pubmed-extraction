@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[Here we present a review of the literature of influenza modeling studies, and discuss how these models can provide insights into the future of the currently circulating novel strain of influenza A (H1N1), formerly known as swine flu. We discuss how the feasibility of controlling an epidemic critically depends on the value of the Basic Reproduction Number (R0). The R0 for novel influenza A (H1N1) has recently been estimated to be between 1.4 and 1.6. This value is below values of R0 estimated for the 1918-1919 pandemic strain (mean R0 approximately 2: range 1.4 to 2.8) and is comparable to R0 values estimated for seasonal strains of influenza (mean R0 1.3: range 0.9 to 2.1). By reviewing results from previous modeling studies we conclude it is theoretically possible that a pandemic of H1N1 could be contained. However it may not be feasible, even in resource-rich countries, to achieve the necessary levels of vaccination and treatment for control. As a recent modeling study has shown, a global cooperative strategy will be essential in order to control a pandemic. This strategy will require resource-rich countries to share their vaccines and antivirals with resource-constrained and resource-poor countries. We conclude our review by discussing the necessity of developing new biologically complex models. We suggest that these models should simultaneously track the transmission dynamics of multiple strains of influenza in bird, pig and human populations. Such models could be critical for identifying effective new interventions, and informing pandemic preparedness planning. Finally, we show that by modeling cross-species transmission it may be possible to predict the emergence of pandemic strains of influenza.]]></TEXT>
+<TAGS>
+<R0_value spans="659~681" text="1.3: range 0.9 to 2.1)" id="R01" vlue=""/>
+<DISEASE spans="184~196" text=" influenza A" id="D0" normalized="NA" comment="NA"/>
+<R0_value spans="441~453" text="1.4 and 1.6." id="R02" vlue=""/>
+<time_frame spans="505~523" text="1918-1919 pandemic" id="t0" vlaue=""/>
+<DISEASE spans="620~649" text="seasonal strains of influenza" id="D1" normalized="NA" comment="NA"/>
+<DISEASE spans="374~398" text="novel influenza A (H1N1)" id="D2" normalized="NA" comment="NA"/>
+<LK_R0_DISEASE id="LK_0" link_R0ID="R02" link_R0Text="1.4 and 1.6." link_DISEASEID="D2" link_DISEASEText="novel influenza A (H1N1)" comment="NA"/>
+<R0_value spans="563~573" text="1.4 to 2.8" id="R03" vlue=""/>
+<R0 spans="331~360" text="Basic Reproduction Number (R0" id="R0" value="NA" comment="NA"/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

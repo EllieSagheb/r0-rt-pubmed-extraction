@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[We assessed the status of measles elimination in the United States using outbreak notification data. Measles transmissibility was assessed by estimation of the reproduction number, R, the average number of secondary cases per infection, using 4 methods; elimination requires maintaining R at <1. Method 1 estimates R as 1 minus the proportion of cases that are imported. Methods 2 and 3 estimate R by fitting a model of the spread of infection to data on the sizes and generations of chains of transmission, respectively. Method 4 assesses transmissibility before public health interventions, by estimating R for the case with the earliest symptom onset in each cluster (Rindex). During 2001-2014, R and Rindex estimates obtained using methods 1-4 were 0.72 (95% confidence interval (CI): 0.68, 0.76), 0.66 (95% CI: 0.62, 0.70), 0.45 (95% CI: 0.40, 0.49), and 0.63 (95% CI: 0.57, 0.69), respectively. Year-to-year variability in the values of R and Rindex and an increase in transmissibility in recent years were noted with all methods. Elimination of endemic measles transmission is maintained in the United States. A suggested increase in measles transmissibility since elimination warrants continued monitoring and emphasizes the importance of high measles vaccination coverage throughout the population.]]></TEXT>
+<TAGS>
+<DISEASE spans="26~33" text="measles" id="D0" normalized="NA" comment="NA"/>
+<LOCATION spans="53~66" text="United States" id="L0" granularity="unknown" normalized="NA" comment="NA"/>
+<time_frame spans="687~696" text="2001-2014" id="T0" vlaue=""/>
+<CI_value spans="783~800" text="(CI): 0.68, 0.76)" id="CI0" value=""/>
+<CI_value spans="815~826" text=" 0.62, 0.70" id="CI1" value=""/>
+<CI_value spans="841~854" text=": 0.40, 0.49)" id="CI2" value=""/>
+<CI_value spans="869~885" text=" CI: 0.57, 0.69)" id="CI3" value=""/>
+<Population spans="735~747" text=" methods 1-4" id="P0" value=""/>
+<Rt_value spans="752~758" text=" 0.72 " id="Rt0" vlaue=""/>
+<Rt_value spans="802~806" text="0.66" id="Rt1" vlaue=""/>
+<Rt_value spans="829~833" text="0.45" id="Rt2" vlaue=""/>
+<Rt_value spans="860~864" text="0.63" id="Rt3" vlaue=""/>
+</TAGS>
+<META>
+<label color="red"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

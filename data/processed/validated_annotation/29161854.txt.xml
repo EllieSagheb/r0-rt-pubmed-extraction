@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[In this paper, an SIR patch model with vaccination is formulated to investigate the effect of vaccination coverage and the impact of human mobility on the spread of diseases among patches. The control reproduction number Rv is derived. It shows that the disease-free equilibrium is unique and is globally asymptotically stable if Rv< 1, and unstable if Rv>1. The sufficient condition for the local stability of boundary equilibria and the existence of equilibria are obtained for the case n=2. Numerical simulations indicate that vaccines can control and prevent the outbreak of infectious in all patches while migration may magnify the outbreak size in one patch and shrink the outbreak size in other patch.]]></TEXT>
+<TAGS/>
+<META/>
+</R0_RT_ANNOTATION_SCHEMA>

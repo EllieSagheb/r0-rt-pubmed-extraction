@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[An RT-qPCR targeting EBOV-L including the preceding RNA extraction protocol were set up and evaluated.]]></TEXT>
+<TAGS>
+<DISEASE spans="21~27" text="EBOV-L" id="D0" normalized="NA" comment="NA"/>
+</TAGS>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>

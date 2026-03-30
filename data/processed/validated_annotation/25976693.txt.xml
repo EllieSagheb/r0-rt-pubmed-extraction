@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<R0_RT_ANNOTATION_SCHEMA>
+<TEXT><![CDATA[A multi-patch SEIQR epidemic model is formulated to investigate the long-term impact of entry-exit screening measures on the spread and control of infectious diseases. A threshold dynamics determined by the basic reproduction number R₀ is established: The disease can be eradicated if R₀ < 1, while the disease persists if R₀ > 1. As an application, six different screening strategies are explored to examine the impacts of screening on the control of the 2009 influenza A (H1N1) pandemic. We find that it is crucial to screen travelers from and to high-risk patches, and it is not necessary to implement screening in all connected patches, and both the dispersal rates and the successful detection rate of screening play an important role on determining an effective and practical screening strategy.]]></TEXT>
+<TAGS/>
+<META>
+<label color="green"/>
+</META>
+</R0_RT_ANNOTATION_SCHEMA>
