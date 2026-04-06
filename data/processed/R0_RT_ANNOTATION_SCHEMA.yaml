@@ -1,0 +1,154 @@
+# Annotation Schema: R0_RT_ANNOTATION_SCHEMA
+# For more information schema design, you can check MedTator Wiki:
+# https://github.com/OHNLP/MedTator/wiki/Annotation-Schema 
+name: R0_RT_ANNOTATION_SCHEMA
+etags:
+  - name: DISEASE
+    attrs:
+      - name: normalized
+        vtype: text
+        default_value: NA
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: LOCATION
+    attrs:
+      - name: granularity
+        vtype: list
+        values:
+          - global
+          - country
+          - state_province
+          - city
+          - region
+          - facility
+          - school
+          - unknown
+        default_value: unknown
+      - name: normalized
+        vtype: text
+        default_value: NA
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: R0
+    attrs:
+      - name: value
+        vtype: text
+        default_value: NA
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: RT
+    attrs:
+      - name: value
+        vtype: text
+        default_value: NA
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: CI
+    attrs:
+      - name: value
+        vtype: text
+        default_value: NA
+      - name: level
+        vtype: text
+        default_value: '95'
+      - name: ci_type
+        vtype: list
+        values:
+          - CI
+          - CrI
+          - range
+          - none
+          - unknown
+        default_value: CI
+  - name: R0_value
+    attrs:
+      - name: vlue
+        vtype: text
+        default_value: ''
+  - name: Rt_value
+    attrs:
+      - name: vlaue
+        vtype: text
+        default_value: ''
+  - name: CI_value
+    attrs:
+      - name: value
+        vtype: text
+        default_value: ''
+  - name: time_frame
+    attrs:
+      - name: vlaue
+        vtype: text
+        default_value: ''
+  - name: Population
+    attrs:
+      - name: value
+        vtype: text
+        default_value: ''
+  - name: Other_important_tags
+    attrs:
+      - name: value
+        vtype: text
+        default_value: ''
+rtags:
+  - name: LK_DISEASE_LOCATION
+    attrs:
+      - name: link_DISEASE
+        vtype: idref
+      - name: link_LOCATION
+        vtype: idref
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: LK_R0_DISEASE
+    attrs:
+      - name: link_R0
+        vtype: idref
+      - name: link_DISEASE
+        vtype: idref
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: LK_RT_DISEASE
+    attrs:
+      - name: link_RT
+        vtype: idref
+      - name: link_DISEASE
+        vtype: idref
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: LK_R0_CI
+    attrs:
+      - name: link_R0
+        vtype: idref
+      - name: link_CI
+        vtype: idref
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: LK_RT_CI
+    attrs:
+      - name: link_RT
+        vtype: idref
+      - name: link_CI
+        vtype: idref
+      - name: comment
+        vtype: text
+        default_value: NA
+  - name: LK_R0_LOCATION
+    attrs:
+      - name: link_R0
+        vtype: idref
+      - name: link_LOCATION
+        vtype: idref
+  - name: LK_RT_LOCATIO
+    attrs:
+      - name: link_RT
+        vtype: idref
+      - name: link_LOCATION
+        vtype: idref
